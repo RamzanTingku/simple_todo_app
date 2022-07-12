@@ -23,6 +23,14 @@
         android:name="com.example.simpletodoapp.ui.add_edit_note.AddEditNoteFragment"
         android:label="Add Note"
         tools:layout="@layout/fragment_add_note" >
+
+        <action
+            android:id="@+id/action_addFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true" />
+
     </fragment>
 
 </navigation>

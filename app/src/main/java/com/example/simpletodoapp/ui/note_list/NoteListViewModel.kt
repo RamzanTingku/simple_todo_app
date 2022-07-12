@@ -10,7 +10,7 @@ import com.example.simpletodoapp.repository.NoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NoteListVIewModel(application: Application) : AndroidViewModel(application) {
+class NoteListViewModel(application: Application) : AndroidViewModel(application) {
 
     private val toDoDao = NoteDatabase.getDatabase(
         application
