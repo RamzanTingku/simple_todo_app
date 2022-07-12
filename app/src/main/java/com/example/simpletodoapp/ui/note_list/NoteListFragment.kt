@@ -1,4 +1,4 @@
-package com.example.simpletodoapp.ui
+package com.example.simpletodoapp.ui.note_list
 
 import android.os.Bundle
 import android.view.*
@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.simpletodoapp.databinding.FragmentListBinding
 
 
-class ListFragment : Fragment(){
+class NoteListFragment : Fragment(){
 
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
