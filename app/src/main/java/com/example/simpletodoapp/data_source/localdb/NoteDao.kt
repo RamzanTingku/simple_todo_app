@@ -3,11 +3,12 @@ package com.example.simpletodoapp.data_source.localdb
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.simpletodoapp.model.Note
+import com.example.simpletodoapp.util.Constants
 
 @Dao
 interface NoteDao {
 
-    @Query("SELECT * FROM note_table ORDER BY id ASC")
+    @Query("SELECT * FROM ${Constants.DBConst.NOTE_TABLE} ORDER BY id ASC")
     fun getAllData(): LiveData<List<Note>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -19,6 +20,6 @@ interface NoteDao {
     @Delete
     suspend fun deleteItem(toDoData: Note)
 
-    @Query("DELETE FROM note_table")
+    @Query("DELETE FROM ${Constants.DBConst.NOTE_TABLE}")
     suspend fun deleteAll()
 }
