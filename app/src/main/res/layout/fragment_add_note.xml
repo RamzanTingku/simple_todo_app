@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:isScrollContainer="true"
-        app:layout_constraintBottom_toTopOf="@+id/bottomContainer"
+        app:layout_constraintBottom_toTopOf="@+id/ll_add"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -24,7 +24,7 @@
             android:layout_marginBottom="80dp">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/title_ti"
+                android:id="@+id/ti_ti"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 app:layout_constraintTop_toTopOf="parent" >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/title_et"
+                    android:id="@+id/et_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -49,7 +49,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/description_ti"
+                android:id="@+id/ti_description"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,23 +60,21 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_ti" >
+                app:layout_constraintTop_toBottomOf="@+id/ti_ti" >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/description_et"
+                    android:id="@+id/et_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text|textImeMultiLine|textMultiLine"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
-        android:id="@+id/bottomContainer"
+        android:id="@+id/ll_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -91,14 +89,12 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn"
+            android:id="@+id/btn_add"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="@string/add_note"
             app:srcCompat="@android:drawable/ic_input_add" />
 
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
