@@ -10,6 +10,11 @@
         android:name="com.example.simpletodoapp.ui.ListFragment"
         android:label="ToDo List"
         tools:layout="@layout/fragment_list" >
+
+        <action
+            android:id="@+id/action_listFragment_to_addFragment"
+            />
+
     </fragment>
 
 </navigation>
