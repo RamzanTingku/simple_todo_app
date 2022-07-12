@@ -12,14 +12,14 @@ interface NoteDao {
     fun getAllData(): LiveData<List<Note>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertData(toDoData: Note)
+    suspend fun insertData(note: Note)
 
     @Update
-    suspend fun updateData(toDoData: Note)
+    suspend fun updateData(note: Note)
 
     @Delete
-    suspend fun deleteItem(toDoData: Note)
+    suspend fun deleteItem(note: Note)
 
     @Query("DELETE FROM ${Constants.DBConst.NOTE_TABLE}")
-    suspend fun deleteAll()
+    suspend fun deleteAll(): Int
 }
