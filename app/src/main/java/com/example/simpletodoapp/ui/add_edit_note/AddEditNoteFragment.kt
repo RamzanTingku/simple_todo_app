@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.example.simpletodoapp.R
 import com.example.simpletodoapp.databinding.FragmentAddNoteBinding
 import com.example.simpletodoapp.model.Note
 import com.example.simpletodoapp.util.Validator
@@ -47,6 +49,8 @@ class AddEditNoteFragment : Fragment() {
             mDescription
         )
         noteViewModel.insertData(newData)
+        Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_addFragment_to_listFragment)
     }
 
     private fun verifyDataFromUser(
