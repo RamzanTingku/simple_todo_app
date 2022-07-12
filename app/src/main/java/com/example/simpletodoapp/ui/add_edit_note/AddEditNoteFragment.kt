@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.simpletodoapp.databinding.FragmentAddNoteBinding
 
 
 class AddEditNoteFragment : Fragment() {
+
+    private val mToDoViewModel: AddEditNoteViewModel by viewModels()
 
     private var _binding: FragmentAddNoteBinding? = null
     private val binding get() = _binding!!
