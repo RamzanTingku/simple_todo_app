@@ -16,6 +16,7 @@
 
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextAppearance">@style/HintText</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:paddingBottom">8dp</item>
     </style>
 
