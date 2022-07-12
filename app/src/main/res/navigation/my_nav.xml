@@ -8,12 +8,17 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.simpletodoapp.ui.note_list.NoteListFragment"
-        android:label="ToDo List"
+        android:label="Note List"
         tools:layout="@layout/fragment_list" >
 
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addNoteFragment"
+            />
+
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/noteDetailFragment"
             />
 
     </fragment>
@@ -31,6 +36,17 @@
             app:popUpTo="@id/listFragment"
             app:popUpToInclusive="true" />
 
+    </fragment>
+
+    <fragment
+        android:id="@+id/noteDetailFragment"
+        android:name="com.example.simpletodoapp.ui.note_detail.NoteDetailsFragment"
+        android:label="Note Detail"
+        tools:layout="@layout/fragment_note_details" >
+
+        <argument
+            android:name="note"
+            app:argType="com.example.simpletodoapp.model.Note" />
     </fragment>
 
 </navigation>
