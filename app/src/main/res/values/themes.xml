@@ -13,4 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="HintText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    </style>
 </resources>
