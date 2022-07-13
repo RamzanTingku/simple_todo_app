@@ -6,4 +6,6 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="no_data">No data is saved</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
 </resources>

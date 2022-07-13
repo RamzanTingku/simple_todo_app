@@ -50,6 +50,10 @@
         <argument
             android:name="note"
             app:argType="com.example.simpletodoapp.model.Note" />
+
+        <action
+            android:id="@+id/action_noteDetailFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
     </fragment>
 
 </navigation>
