@@ -35,6 +35,9 @@
             app:launchSingleTop="false"
             app:popUpTo="@id/listFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="note"
+            app:argType="com.example.simpletodoapp.model.Note" />
 
     </fragment>
 

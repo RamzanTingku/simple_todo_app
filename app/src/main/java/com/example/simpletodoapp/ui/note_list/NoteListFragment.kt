@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.simpletodoapp.databinding.FragmentListBinding
 import com.example.simpletodoapp.ui.note_list.adapter.NoteListAdapter
 
