@@ -1,11 +1,13 @@
 package com.example.simpletodoapp.ui
 
+import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
 import com.example.simpletodoapp.R
 import com.example.simpletodoapp.model.Note
 import com.example.simpletodoapp.ui.add_edit_note.AddEditNoteFragmentDirections
+import com.example.simpletodoapp.ui.note_detail.NoteDetailsFragmentDirections
 import com.example.simpletodoapp.ui.note_list.NoteListFragmentDirections
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -18,17 +20,9 @@ class BindingAdapters {
         fun navigateToAddNoteFragment(view: FloatingActionButton, navigate: Boolean){
             view.setOnClickListener {
                 if(navigate){
-                    view.findNavController().navigate(R.id.action_listFragment_to_addFragment)
+                    val action = NoteListFragmentDirections.actionListFragmentToAddFragment(null)
+                    view.findNavController().navigate(action)
                 }
-            }
-        }
-
-        @BindingAdapter("android:navigateToEditNoteFragment")
-        @JvmStatic
-        fun navigateToEditNoteFragment(view: FloatingActionButton, note: Note ){
-            view.setOnClickListener {
-                val action = NoteListFragmentDirections.actionListFragmentToAddFragment(note)
-                view.findNavController().navigate(action)
             }
         }
 
@@ -40,7 +34,6 @@ class BindingAdapters {
                 view.findNavController().navigate(action)
             }
         }
-
 
     }
 

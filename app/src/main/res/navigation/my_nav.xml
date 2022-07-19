@@ -42,7 +42,10 @@
 
         <argument
             android:name="note"
-            app:argType="com.example.simpletodoapp.model.Note" />
+            app:argType="com.example.simpletodoapp.model.Note"
+            android:defaultValue="@null"
+            app:nullable="true"
+            />
 
     </fragment>
 

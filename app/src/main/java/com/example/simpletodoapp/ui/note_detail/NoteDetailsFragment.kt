@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.simpletodoapp.R
@@ -50,14 +51,23 @@ class NoteDetailsFragment : Fragment() , MenuProvider {
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
+            android.R.id.home -> {
+                findNavController().popBackStack()
+            }
             R.id.menu_edit -> {
-                return false
+                editNote()
             }
             R.id.menu_delete -> {
                 deleteNote()
             }
         }
         return true
+    }
+
+    private fun editNote() {
+        findNavController().graph.findNode(R.id.addNoteFragment)?.label = "Edit Note"
+        val action = NoteDetailsFragmentDirections.actionNoteDetailFragmentToAddNoteFragment(args.note)
+        findNavController().navigate(action)
     }
 
     private fun deleteNote() {

@@ -13,8 +13,8 @@ import kotlinx.parcelize.Parcelize
 data class Note(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val title: String,
-    val description: String
+    var title: String,
+    var description: String
 ): Parcelable{
     constructor(title: String, description: String) : this(0, title, description)
 }
