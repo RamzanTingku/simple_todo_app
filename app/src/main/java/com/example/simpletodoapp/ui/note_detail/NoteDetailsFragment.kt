@@ -1,16 +1,11 @@
 package com.example.simpletodoapp.ui.note_detail
 
-import android.app.AlertDialog
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.*
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.simpletodoapp.R
 import com.example.simpletodoapp.databinding.FragmentNoteDetailsBinding
@@ -23,7 +18,7 @@ class NoteDetailsFragment : Fragment() , MenuProvider {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentNoteDetailsBinding.inflate(inflater, container, false)
         binding.note = args.note
@@ -39,11 +34,24 @@ class NoteDetailsFragment : Fragment() , MenuProvider {
         _binding = null
     }
 
+
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        menuInflater.inflate(R.menu.update_fragment_menu, menu)
+        menuInflater.inflate(R.menu.edit_menue, menu)
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        TODO("Not yet implemented")
+        when (menuItem.itemId) {
+            R.id.menu_edit -> {
+                return false
+            }
+            R.id.menu_delete -> {
+                deleteNote()
+            }
+        }
+        return true
+    }
+
+    private fun deleteNote() {
+        
     }
 }
