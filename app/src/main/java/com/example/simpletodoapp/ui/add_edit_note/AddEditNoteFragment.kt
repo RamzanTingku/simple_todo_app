@@ -50,7 +50,7 @@ class AddEditNoteFragment : Fragment() {
         )
         noteViewModel.insertData(newData)
         Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.action_addFragment_to_listFragment)
+        findNavController().popBackStack()
     }
 
     private fun verifyDataFromUser(

@@ -11,6 +11,10 @@ interface NoteDao {
     @Query("SELECT * FROM ${Constants.DBConst.NOTE_TABLE} ORDER BY id ASC")
     fun getAllData(): LiveData<List<Note>>
 
+
+    @Query("SELECT * FROM ${Constants.DBConst.NOTE_TABLE} WHERE id =:id")
+    fun getData(id: Int): LiveData<Note>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertData(note: Note)
 

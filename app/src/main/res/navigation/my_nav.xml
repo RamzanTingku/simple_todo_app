@@ -35,6 +35,11 @@
             app:launchSingleTop="false"
             app:popUpTo="@id/listFragment"
             app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_addFragment_to_noteDetailFragment"
+            app:destination="@id/noteDetailFragment" />
+
         <argument
             android:name="note"
             app:argType="com.example.simpletodoapp.model.Note" />
