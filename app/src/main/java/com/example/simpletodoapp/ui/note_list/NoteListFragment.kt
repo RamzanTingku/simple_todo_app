@@ -13,8 +13,13 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simpletodoapp.R
+import com.example.simpletodoapp.data_source.shared_pref.AppSharedPref
 import com.example.simpletodoapp.databinding.FragmentListBinding
 import com.example.simpletodoapp.ui.note_list.adapter.NoteListAdapter
+import com.example.simpletodoapp.util.Constants
+import com.example.simpletodoapp.util.Constants.SharedPrefConst.CURRENT_THEME
+import com.example.simpletodoapp.util.Constants.SharedPrefConst.THEME_DARK
+import com.example.simpletodoapp.util.Constants.SharedPrefConst.THEME_LIGHT
 import com.example.simpletodoapp.util.isDarkThemeOn
 
 
@@ -59,10 +64,22 @@ class NoteListFragment : Fragment(), MenuProvider {
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.list_menu, menu)
-        if(activity?.isDarkThemeOn() == true){
-            menu.findItem(R.id.menu_dark).isChecked = true
+        setSelectedMenu(menu)
+    }
+
+    private fun setSelectedMenu(menu: Menu) {
+        if(AppSharedPref.getStringData(CURRENT_THEME) != null ){
+            if(AppSharedPref.getStringData(CURRENT_THEME) == THEME_DARK){
+                menu.findItem(R.id.menu_dark).isChecked = true
+            }else{
+                menu.findItem(R.id.menu_light).isChecked = true
+            }
         }else{
-            menu.findItem(R.id.menu_light).isChecked = true
+            if(activity?.isDarkThemeOn() == true){
+                menu.findItem(R.id.menu_dark).isChecked = true
+            }else{
+                menu.findItem(R.id.menu_light).isChecked = true
+            }
         }
     }
 
@@ -70,11 +87,17 @@ class NoteListFragment : Fragment(), MenuProvider {
         when (menuItem.itemId) {
             R.id.menu_dark -> {
                 menuItem.isChecked = !menuItem.isChecked
-                if(menuItem.isChecked) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                if(menuItem.isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    AppSharedPref.saveStringData(CURRENT_THEME, THEME_DARK)
+                }
             }
             R.id.menu_light -> {
                 menuItem.isChecked = !menuItem.isChecked
-                if(menuItem.isChecked) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                if(menuItem.isChecked) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    AppSharedPref.saveStringData(CURRENT_THEME, THEME_LIGHT)
+                }
             }
         }
         return true
