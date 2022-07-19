@@ -45,10 +45,8 @@ class NoteListAdapter : RecyclerView.Adapter<NoteListAdapter.MyViewHolder>() {
     }
 
     fun setData(Note: List<Note>){
-        val toDoDiffUtil = NoteDiffUtil(dataList, Note)
-        val toDoDiffResult = DiffUtil.calculateDiff(toDoDiffUtil)
         this.dataList = Note
-        toDoDiffResult.dispatchUpdatesTo(this)
+        notifyDataSetChanged()
     }
 
 }
