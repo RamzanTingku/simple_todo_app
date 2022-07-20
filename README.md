@@ -2,8 +2,8 @@
 
 Features:
 
-- Use can store data
-- User can see the full list with your customized design
+- User can store data
+- User can see the full list
 - User can add new task, edit or delete
 - By tapping any task he can see full info about task
 - User can change theme and save it for further app session
